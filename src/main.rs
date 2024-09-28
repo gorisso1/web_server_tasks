@@ -12,7 +12,7 @@ mod controllers;
 async fn main() {
      dotenv().ok();
 
-     let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
+     let database_url = env::var("DATABASE_URL").expect("DATABASE_URL должен быть установлен.");
      let pool = SqlitePool::connect(&database_url).await.expect("Ошибка соединение с базой данных!");
 
      model::create_task_table(&pool).await;
